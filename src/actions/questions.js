@@ -12,54 +12,50 @@ export function receiveQuestions (questions) {
   }
 }
 
-function addQuestion (question, users, loggedInUser, questions) {
+function addQuestion (question) {
   return {
     type: ADD_QUESTION,
     question,
-    users,
-    loggedInUser,
-    questions
   }
 }
 
 export function handleAddQuestion (optionOneText, optionTwoText) {
   return (dispatch, getState) => {
-    const { loggedInUser, users, questions } = getState()
-    console.log(loggedInUser)
-    console.log(users)
-    console.log(questions)
+    const { authedUser } = getState()
+
     dispatch(showLoading())
 
     return saveQuestion({
-      author: loggedInUser,
+      author: authedUser,
       optionOneText,
       optionTwoText
     })
-      .then((question) => dispatch(addQuestion(question, users, loggedInUser, questions)))
+      .then((question) => dispatch(addQuestion(question)))
       .then(() => dispatch(hideLoading()))
   }
 }
 
-function answerQuestion ({ qid, answer }) {
+function answerQuestion (qid, answer, authedUser) {
   return {
     type: ANSWER_QUESTION,
     qid,
-    answer
+    answer,
+    authedUser
   }
 }
 
-export function handleAnswerQuestion ({ qid, answer }) {
+export function handleAnswerQuestion (qid, answer) {
   return (dispatch, getState) => {
-    const { loggedInUser } = getState()
+    const { authedUser } = getState()
 
     dispatch(showLoading())
 
     return saveQuestionAnswer({
+      authedUser,
       qid,
-      answer,
-      loggedInUser
+      answer
     })
-      .then((question) => dispatch(answerQuestion(question)))
+      .then(() => dispatch(answerQuestion(qid, answer, authedUser)))
       .then(() => dispatch(hideLoading()))
   }
 }

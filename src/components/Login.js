@@ -1,0 +1,92 @@
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import {
+  TiArrowRightThick
+ } from 'react-icons/ti/index'
+import { setLoggedInUser } from '../actions/loggedInUser'
+
+class Login extends Component {
+  state = {
+    checked: false,
+    id: '',
+    toGameDashboard: false,
+  }
+
+  componentDidMount () {
+    const { dispatch } = this.props
+
+    dispatch(setLoggedInUser(null))
+  }
+
+  handleLogin = (e) => {
+    e.preventDefault()
+    const { id } = this.state
+    const { dispatch } = this.props
+
+    dispatch(setLoggedInUser(id))
+
+    this.setState(() => ({
+      toGameDashboard: true
+    }))
+  }
+
+  onChecked = (e) => {
+    const id = e.target.value
+    this.setState({
+      checked: true,
+      id
+    })
+  }
+
+  render() {
+    const { users } = this.props
+    const { toGameDashboard } = this.state
+
+    if (toGameDashboard === true) {
+      return <Redirect to='/' />
+    }
+
+    return (
+      <div>
+        <form className='login-form'>
+          <input className='hidden-input'/>
+          <div className='login-select'>
+            {users && Object.values(users).map(user => (
+              <label key={user.id} className='select-user'>
+                <input
+                  className='login-radio'
+                  type='radio'
+                  name='user'
+                  value={user.id}
+                  onChange={(event) => this.onChecked(event)}/>
+                <img
+                  src={user.avatarURL}
+                  alt={`Avatar of ${user.name}`}
+                  className='avatar'/>
+                {user.name}
+              </label>
+            ))}
+          </div>
+          {this.state.checked && <div className='play-btn'>
+            <button
+              className='start-play'
+              type='submit'
+              onClick={this.handleLogin}>
+              <span className='play-text'>Begin Playing</span>
+              <TiArrowRightThick className='right-arrow-icon' />
+            </button>
+          </div>}
+        </form>
+      </div>
+    )
+  }
+}
+
+function mapStateToProps ({ users }) {
+  return {
+    users
+  }
+}
+
+export default connect(mapStateToProps)(Login)

@@ -1,33 +1,54 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import Question from './Question'
+import { handleAnswerQuestion } from '../actions/questions'
 
 class QuestionDetails extends Component {
   state = {
     voted: false,
-    vote: ''
+    answer: '',
+    toHome: false,
   }
 
   onVote = (e) => {
-    const vote = e.target.value
+    const answer = e.target.value
 
     this.setState({
       voted: true,
-      vote
+      answer
     })
   }
 
+  handleSubmit = () => {
+    const { answer } = this.state
+    const { dispatch, qid } = this.props
+
+    dispatch(handleAnswerQuestion(qid, answer))
+
+    this.setState(() => ({
+      voted: false,
+      answer: '',
+      toHome: qid ? false : true
+    }))
+  }
+
   render() {
+    const { voted, toHome } = this.state
     const { question, qid, answered } = this.props
     const { optionOne, optionTwo } = question
     const totalVotes = optionOne.votes.length + optionTwo.votes.length
     const optionOnePercentage = optionOne.votes.length / totalVotes * 100
     const optionTwoPercentage = optionTwo.votes.length / totalVotes * 100
 
+    if (toHome === true) {
+      return <Redirect to='/' />
+    }
+
     return (
       <div>
         <div className='single-question'>
-          <Question qid={qid} answered={answered}/>
+          <Question qid={qid} />
         </div>
         {answered &&
         <div className='vote-details'>
@@ -50,11 +71,15 @@ class QuestionDetails extends Component {
           <div className='bar-labels'>
             <div className='label'>
               <span className='label-text'>{optionOne.text} </span>
-              <span className='one votes'>{optionOne.votes.length}</span>
+              <span className='one votes'>
+                {optionOne.votes.length} ({Number(optionOnePercentage.toFixed(2))}%)
+              </span>
             </div>
             <div className='label'>
               <span className='label-text'>{optionTwo.text} </span>
-              <span className='two votes'>{optionTwo.votes.length}</span>
+              <span className='two votes'>
+                {optionTwo.votes.length} ({Number(optionTwoPercentage.toFixed(2))}%)
+              </span>
             </div>
           </div>
         </div>
@@ -67,7 +92,7 @@ class QuestionDetails extends Component {
                   className='option'
                   type='radio'
                   name='option'
-                  value={optionOne.text}
+                  value='optionOne'
                   onChange={(e) => this.onVote(e)}/>
                 <div className='select'>1</div>
                 {optionOne.text}
@@ -77,7 +102,7 @@ class QuestionDetails extends Component {
                   className='option'
                   type='radio'
                   name='option'
-                  value={optionTwo.text}
+                  value='optionTwo'
                   onChange={(e) => this.onVote(e)}/>
                 <div className='select'>2</div>
                 {optionTwo.text}
@@ -86,7 +111,8 @@ class QuestionDetails extends Component {
             <button
               className='submit-btn vote'
               type='submit'
-              disabled={!this.state.voted}>
+              disabled={!voted}
+              onClick={() => this.handleSubmit()}>
               <span className='btn-text'>Submit</span>
             </button>
           </form>
@@ -96,12 +122,13 @@ class QuestionDetails extends Component {
   }
 }
 
-function mapStateToProps({ loggedInUser, questions, users }, props) {
+function mapStateToProps({ authedUser, questions }, props) {
   const { id } = props.match.params
   const question = questions[id]
+
   let answered = false;
-  if (question.optionOne.votes.find(vote => vote === loggedInUser)
-    || question.optionTwo.votes.find(vote => vote === loggedInUser)) {
+  if (question.optionOne.votes.find(vote => vote === authedUser)
+    || question.optionTwo.votes.find(vote => vote === authedUser)) {
     answered = true;
   }
   return {

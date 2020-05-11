@@ -16,21 +16,21 @@ class App extends Component {
   }
 
   render() {
-    const { loggedInUser } = this.props
+    const { authedUser } = this.props
     return (
       <Router>
         <div>
           <h1 className='game title'>Would You Rather?</h1>
           <div>
-            {!loggedInUser &&
+            {!authedUser &&
               <h3 className='login title'>
                 Pick a User to Begin Playing
               </h3>}
-            {loggedInUser && <NavBar/>}
+            {authedUser && <NavBar/>}
             <LoadingBar/>
-            {loggedInUser && <Welcome/>}
+            {authedUser && <Welcome/>}
             <Route exact path='/' render={() => (
-              loggedInUser ? (
+              authedUser ? (
                 <Redirect to='/'/>
               ) : (
                 <Redirect to='/login'/>
@@ -47,9 +47,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps ({loggedInUser}) {
+function mapStateToProps ({authedUser}) {
   return {
-    loggedInUser
+    authedUser
   }
 }
 

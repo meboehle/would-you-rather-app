@@ -38,10 +38,10 @@ class Question extends Component {
   }
 }
 
-function mapStateToProps({ loggedInUser, questions, users }, { qid }) {
+function mapStateToProps({ authedUser, questions, users }, { qid }) {
   const question = questions[qid]
   return {
-    loggedInUser,
+    authedUser,
     question: question,
     users,
   }

@@ -28,14 +28,13 @@ class Dashboard extends Component {
   }
 }
 
-function mapStateToProps({ loggedInUser, questions }) {
+function mapStateToProps({ authedUser, questions }) {
   let unanswered = [];
   let answered = [];
-  console.log(questions)
 
   Object.values(questions).forEach((question) => {
-    if (question.optionOne.votes.find(vote => vote === loggedInUser)
-      || question.optionTwo.votes.find(vote => vote === loggedInUser)) {
+    if (question.optionOne.votes.find(vote => vote === authedUser)
+      || question.optionTwo.votes.find(vote => vote === authedUser)) {
       return answered.push(question)
     } else {
       unanswered.push(question)

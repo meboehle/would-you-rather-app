@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 class Welcome extends Component {
 
   render() {
-    const { loggedInUser, users } = this.props
-    const user = Object.values(users).find(user => user.id === loggedInUser)
+    const { authedUser, users } = this.props
+    const user = Object.values(users).find(user => user.id === authedUser)
 
     return (
       <div className='welcome'>
@@ -19,9 +19,9 @@ class Welcome extends Component {
   }
 }
 
-function mapStateToProps ({loggedInUser, users}) {
+function mapStateToProps ({authedUser, users}) {
   return {
-    loggedInUser,
+    authedUser,
     users
   }
 }

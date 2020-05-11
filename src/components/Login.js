@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import {
   TiArrowRightThick
  } from 'react-icons/ti/index'
-import { setLoggedInUser } from '../actions/loggedInUser'
+import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends Component {
   state = {
@@ -16,7 +16,7 @@ class Login extends Component {
   componentDidMount () {
     const { dispatch } = this.props
 
-    dispatch(setLoggedInUser(null))
+    dispatch(setAuthedUser(null))
   }
 
   handleLogin = (e) => {
@@ -24,7 +24,7 @@ class Login extends Component {
     const { id } = this.state
     const { dispatch } = this.props
 
-    dispatch(setLoggedInUser(id))
+    dispatch(setAuthedUser(id))
 
     this.setState(() => ({
       toGameDashboard: true

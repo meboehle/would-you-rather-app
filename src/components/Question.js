@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatDate } from '../utils/helpers'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Question extends Component {
   render() {
@@ -42,9 +42,9 @@ function mapStateToProps({ authedUser, questions, users }, { qid }) {
   const question = questions[qid]
   return {
     authedUser,
-    question: question,
+    question,
     users,
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Question))
+export default connect(mapStateToProps)(Question)

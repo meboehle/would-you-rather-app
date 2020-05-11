@@ -3,26 +3,74 @@ import { connect } from 'react-redux'
 import Question from './Question'
 
 class Dashboard extends Component {
+  state = {
+    toggle: 'unanswered'
+  }
+
+  onChange = (e) => {
+    const toggle = e.target.value
+
+    this.setState(() => ({
+      toggle
+    }))
+  }
+
+  onClick = (toggle) => {
+    this.setState(() => ({
+      toggle
+    }))
+  }
+
   render() {
     const { unansweredIds, answeredIds } = this.props
     return (
       <div className='questions'>
-        <ul className='unanswered'>
-          <h2>Unanswered Questions</h2>
-          {unansweredIds && unansweredIds.map((qid) => (
-            <li key={qid}>
-              <Question qid={qid} answered={false}/>
-            </li>
-          ))}
-        </ul>
-        <ul className='answered'>
-          <h2>Answered Questions</h2>
-          {answeredIds && answeredIds.map((qid) => (
-            <li key={qid}>
-              <Question qid={qid} answered={true}/>
-            </li>
-          ))}
-        </ul>
+        <h2 className='dashboard-title'>QUESTIONS</h2>
+        <div className='toggle-btns'>
+          <label className='toggle-label'>
+            <input
+              className='option'
+              type='radio'
+              name='option'
+              value='unanswered'
+              defaultChecked
+              onChange={(e) => this.onChange(e)}/>
+            <div className='select'>U</div>
+            <span>Unanswered</span>
+          </label>
+          <label className='toggle-label'>
+            <input
+              className='option'
+              type='radio'
+              name='option'
+              value='answered'
+              onChange={(e) => this.onChange(e)}/>
+            <div className='select'>A</div>
+            Answered
+          </label>
+        </div>
+        {this.state.toggle === 'unanswered' && unansweredIds.length !== 0 &&
+          <ul className='question-list'>
+            {unansweredIds && unansweredIds.map((qid) => (
+              <li key={qid}>
+                <Question qid={qid} answered={false}/>
+              </li>
+            ))}
+          </ul>}
+        {this.state.toggle === 'unanswered' && unansweredIds.length === 0 &&
+          <div>No more questions to answer</div>
+        }
+        {this.state.toggle === 'answered' && answeredIds.length !== 0 &&
+          <ul className='question-list'>
+            {answeredIds && answeredIds.map((qid) => (
+              <li key={qid}>
+                <Question qid={qid} answered={true}/>
+              </li>
+            ))}
+          </ul>}
+        {this.state.toggle === 'answered' && answeredIds.length === 0 &&
+          <div>You have not answered any questions yet</div>
+        }
       </div>
     )
   }

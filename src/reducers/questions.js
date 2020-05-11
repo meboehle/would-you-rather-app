@@ -7,25 +7,21 @@ export default function questions (state = {}, action) {
         ...state,
         ...action.questions,
       }
-      // TODO: FIX THIS
     case ADD_QUESTION :
       return {
-        users: {
-          ...action.users,
-          [action.loggedInUser]: {
-            ...action.users[action.loggedInUser],
-            questions: action.users[action.loggedInUser].questions.concat([action.question.id])
-          }
-        },
-        questions: {
-          ...action.questions,
-          [action.question.id]: action.question
-        }
+        ...state,
+        [action.question.id]: action.question
       }
     case ANSWER_QUESTION :
       return {
         ...state,
-        [action.question.id]: action.question
+        [action.qid]: {
+          ...state[action.qid],
+          [action.answer]: {
+            ...state[action.qid][action.answer],
+            votes: state[action.qid][action.answer].votes.concat([action.authedUser])
+          }
+        }
       }
     default :
       return state

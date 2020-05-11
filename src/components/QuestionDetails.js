@@ -35,7 +35,8 @@ class QuestionDetails extends Component {
 
   render() {
     const { voted, toHome } = this.state
-    const { question, qid, answered } = this.props
+    const { question, qid, answered, answer, user } = this.props
+
     const { optionOne, optionTwo } = question
     const totalVotes = optionOne.votes.length + optionTwo.votes.length
     const optionOnePercentage = optionOne.votes.length / totalVotes * 100
@@ -52,7 +53,7 @@ class QuestionDetails extends Component {
         </div>
         {answered &&
         <div className='vote-details'>
-          <div className='label'>
+          <div className='total-label'>
             <span className='label-text'>total votes </span>
             <span className='votes'>{totalVotes}</span>
           </div>
@@ -70,15 +71,25 @@ class QuestionDetails extends Component {
           </div>
           <div className='bar-labels'>
             <div className='label'>
+              {answer.text === optionOne.text &&
+                <img
+                  src={user.avatarURL}
+                  alt={`Avatar of ${user.name}`}
+                  className='avatar-question'/>}
               <span className='label-text'>{optionOne.text} </span>
               <span className='one votes'>
-                {optionOne.votes.length} ({Number(optionOnePercentage.toFixed(2))}%)
+                {optionOne.votes.length} of {totalVotes} ({Number(optionOnePercentage.toFixed(2))}%)
               </span>
             </div>
             <div className='label'>
+              {answer.text === optionTwo.text &&
+                <img
+                  src={user.avatarURL}
+                  alt={`Avatar of ${user.name}`}
+                  className='avatar-question'/>}
               <span className='label-text'>{optionTwo.text} </span>
               <span className='two votes'>
-                {optionTwo.votes.length} ({Number(optionTwoPercentage.toFixed(2))}%)
+                {optionTwo.votes.length} of {totalVotes} ({Number(optionTwoPercentage.toFixed(2))}%)
               </span>
             </div>
           </div>
@@ -87,7 +98,7 @@ class QuestionDetails extends Component {
         {!answered &&
           <form>
             <div className='voting-form'>
-              <label className='vote-select'>
+              <label>
                 <input
                   className='option'
                   type='radio'
@@ -97,7 +108,7 @@ class QuestionDetails extends Component {
                 <div className='select'>1</div>
                 {optionOne.text}
               </label>
-              <label className='vote-select'>
+              <label>
                 <input
                   className='option'
                   type='radio'
@@ -122,19 +133,27 @@ class QuestionDetails extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, questions }, props) {
+function mapStateToProps({ authedUser, questions, users }, props) {
   const { id } = props.match.params
   const question = questions[id]
 
-  let answered = false;
-  if (question.optionOne.votes.find(vote => vote === authedUser)
-    || question.optionTwo.votes.find(vote => vote === authedUser)) {
-    answered = true;
+  const user = Object.values(users).find(user => user.id === authedUser)
+
+  let answered = false
+  let answer = ''
+  if (question.optionOne.votes.find(vote => vote === authedUser)) {
+    answered = true
+    answer = question.optionOne
+  } else if (question.optionTwo.votes.find(vote => vote === authedUser)) {
+    answered = true
+    answer = question.optionTwo
   }
   return {
     question,
     qid: id,
-    answered
+    answered,
+    answer,
+    user
   }
 }
 

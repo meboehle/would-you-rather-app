@@ -8,6 +8,7 @@ import NavBar from './NavBar'
 import QuestionDetails from './QuestionDetails'
 import NewQuestion from './NewQuestion'
 import Welcome from './Welcome'
+// import NotFound from './404'
 import LoadingBar from 'react-redux-loading'
 
 class App extends Component {
@@ -29,17 +30,14 @@ class App extends Component {
             {authedUser && <NavBar/>}
             <LoadingBar/>
             {authedUser && <Welcome/>}
-            <Route exact path='/' render={() => (
-              authedUser ? (
-                <Redirect to='/'/>
-              ) : (
-                <Redirect to='/login'/>
-              )
-            )}/>
-            <Route path='/' exact component={Dashboard} />
+            {!authedUser ? <Redirect to='/login' /> : <Redirect to='/' />}
             <Route path='/login' component={Login} />
-            <Route path='/question/:id' component={QuestionDetails} />
-            <Route path='/addQuestion' component={NewQuestion} />
+            {this.props.loading === true ? null :
+              <div>
+                <Route path='/' exact component={Dashboard} />
+                <Route path='/question/:id' component={QuestionDetails} />
+                <Route path='/addQuestion' component={NewQuestion} />
+              </div>}
           </div>
         </div>
       </Router>
@@ -49,7 +47,8 @@ class App extends Component {
 
 function mapStateToProps ({authedUser}) {
   return {
-    authedUser
+    authedUser,
+    loading: authedUser === null
   }
 }
 

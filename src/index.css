@@ -186,6 +186,25 @@ li {
   padding: 5px 10px;
 }
 
+.toggle-btns {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-size: 20px;
+  box-shadow:  inset 0 -4px 4px -4px #475352;
+  width: 80%;
+}
+
+.view-questions {
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+
 /* Question */
 .question {
   min-height: 80px;
@@ -201,7 +220,7 @@ li {
 }
 
 .question:hover {
-  box-shadow: 0 0 10px #E71D36;
+  box-shadow: 0 0 10px #23c4b6;
 }
 
 .question-author {
@@ -237,18 +256,12 @@ li {
   font-size: 22px;
 }
 
-.unanswered {
-  width: 90%;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  padding: 1px 0 15px 0;
-}
-
-.answered {
-  padding: 1px 0 15px 0;
+.question-list {
   width: 90%;
   margin: 0 auto;
   margin-bottom: 30px;
+  overflow: scroll;
+  max-height: 500px;
 }
 
 .single-question {
@@ -260,7 +273,7 @@ li {
 }
 
 .vote-details {
-  padding: 20px 0 0 0;
+  padding: 50px 0 0 0;
 }
 
 .vote-details .label {
@@ -295,13 +308,19 @@ li {
   padding-top: 10px;
 }
 
-.label {
+.total-label {
+  font-size: 22px;
   text-align: center;
+  padding: 0 0 10px 0;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
   font-size: 22px;
 }
 
 .label-text {
-  padding-left: 3px;
   font-size: 18px;
   color: #475352;
 }
@@ -312,11 +331,14 @@ li {
 
 .one {
   color: #23c4b6;
+  padding: 0 5px;
 }
 
 .two {
   color: #E71D36;
+  padding: 0 5px;
 }
+
 
 /* New Question */
 h2 {
@@ -410,6 +432,8 @@ h2 {
 .vote {
   justify-content: center;
   display: flex;
+  width: 150px;
+  margin-top: 60px;
 }
 
 .option-text {

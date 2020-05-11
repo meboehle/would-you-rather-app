@@ -1,13 +1,417 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  color: #011627;
+  background-color: #fdfffc;
+  font-family: 'Muli', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Overall */
+.avatar {
+  height: 70px;
+  margin: 10px;
+  filter: grayscale(100%);
+  transition: 0.25s ease-in-out;
+  -webkit-filter: grayscale(100%);
+  -webkit-transition: 0.25s ease-in-out;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-weight: 500;
+  box-shadow: 0 5px 10px #475352;
+  color: #fdfffc;
+}
+
+.game {
+  height: 100px;
+  background-color: #011627;
+  font-family: 'Lobster', cursive;
+}
+
+
+/* Login Page */
+.login {
+  font-weight: 500;
+  height: 50px;
+  background-color: #FF9F1C;
+}
+
+.login-form {
+  margin-top: 50px;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.login-select {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.select-user {
+  display: inline-flex;
+  align-items: center;
+  flex: 1 1 auto;
+  flex-flow: column;
+}
+
+.select-user:hover {
+  cursor: pointer;
+}
+
+.login-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.login-radio + img {
+  cursor: pointer;
+}
+
+.login-radio:hover + img, .login-radio:checked + img {
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+}
+
+.play-btn {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-play {
+  border: 0;
+  background: none;
+  position: absolute;
+}
+
+.start-play:hover {
+  cursor: pointer;
+}
+
+.start-play:focus {
+  outline: 0;
+}
+
+.play-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Lobster', sans-serif;
+  font-size: 26px;
+  padding-bottom: 5px;
+}
+
+.play-text:hover + .right-arrow-icon {
+  cursor: pointer;
+  color: #fdfffc;
+  background-color: #E71D36;
+}
+
+.right-arrow-icon {
+  font-size: 30px;
+  padding: 10px;
+  color: #E71D36;
+  border-radius: 30px;
+  box-shadow: 0px 0px 5px #475352;
+}
+
+.right-arrow-icon:hover {
+  color: #fdfffc;
+  background-color: #E71D36;
+}
+
+
+/* NavBar */
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #FF9F1C;
+  box-shadow: inset 0 0px 5px #475352;
+  margin: 0 auto;
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.active {
+  font-weight: 700;
+  border-radius: 15px;
+  padding: 5px 15px;
+  background-color: #011627;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fdfffc;
+}
+
+nav a:hover {
+  font-weight: 700;
+}
+
+.welcome {
+  font-size: 20px;
+  color: #011627;
+  font-family: 'Lobster', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.avatar-welcome {
+  height: 50px;
+  margin: 15px 10px 10px 15px;
+}
+
+
+/* Dashboard */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 5px 10px;
+}
+
+/* Question */
+.question {
+  min-height: 80px;
+  background-color: #011627;
+  color: #fdfffc;
+  text-decoration: none;
+  display: inline-flex;
+  width: 80%;
+  justify-content: space-between;
+  box-shadow: 0 0 10px #475352;
+  padding: 5px;
+  position: relative;
+}
+
+.question:hover {
+  box-shadow: 0 0 10px #E71D36;
+}
+
+.question-author {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.avatar-question {
+  height: 35px;
+  margin: 0 5px;
+}
+
+.questions {
+  padding: 0 10px;
+  text-align: center;
+}
+
+.question-container {
+  margin: 5px;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.wyr-or {
+  display: flex;
+  flex-flow: column wrap;
+  color: #23c4b6;
+  padding: 0 5px;
+  font-family: 'Lobster', sans-serif;
+  font-size: 22px;
+}
+
+.unanswered {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 1px 0 15px 0;
+}
+
+.answered {
+  padding: 1px 0 15px 0;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.single-question {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  margin-top: 40px;
+  width: 90%;
+}
+
+.vote-details {
+  padding: 20px 0 0 0;
+}
+
+.vote-details .label {
+  padding: 0 0 10px 0;
+}
+
+.results {
+  height: 35px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.bar-fill {
+  display: inline-block;
+  height: 100%;
+}
+
+.option-one {
+  position: relative;
+  background-color: #23c4b6;
+}
+
+.option-two {
+  position: relative;
+  background-color: #E71D36;
+}
+
+.bar-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.label {
+  text-align: center;
+  font-size: 22px;
+}
+
+.label-text {
+  padding-left: 3px;
+  font-size: 18px;
+  color: #475352;
+}
+
+.votes {
+  font-weight: 700;
+}
+
+.one {
+  color: #23c4b6;
+}
+
+.two {
+  color: #E71D36;
+}
+
+/* New Question */
+h2 {
+  text-align: center;
+}
+
+.new-question {
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea {
+  border-radius: 4px;
+  box-shadow: inset 1px 1px 5px #011627;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  height: 100px;
+  resize: none;
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+.submit-btn {
+  width: 300px;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 5px #475352;
+}
+
+.submit-btn:hover:enabled {
+  cursor: pointer;
+  background-color: #E71D36;
+  color: #fdfffc;
+  border: none;
+}
+
+.submit-btn:focus {
+  outline: none;
+}
+
+.btn-text {
+  font-family: 'Lobster', sans-serif;
+  font-size: 26px;
+}
+
+
+/* Voting */
+.voting-form {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 50px;
+}
+
+.option {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.option + .select {
+  cursor: pointer;
+}
+
+.select {
+  display: inline-flex;
+  justify-content: center;
+  font-family: 'Lobster', sans-serif;
+  font-size: 24px;
+  margin-right: 10px;
+  width: 30px;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 5px #475352;
+}
+
+.option:hover + .select, .option:checked + .select {
+  color: #fdfffc;
+  background-color: #E71D36;
+}
+
+.vote {
+  justify-content: center;
+  display: flex;
+}
+
+.option-text {
+  text-align: center;
 }

@@ -9,6 +9,7 @@ import QuestionDetails from './QuestionDetails'
 import NewQuestion from './NewQuestion'
 // import NotFound from './404'
 import LoadingBar from 'react-redux-loading'
+import Leaderboard from './Leaderboard'
 
 class App extends Component {
   componentDidMount() {
@@ -24,15 +25,15 @@ class App extends Component {
           <LoadingBar/>
           <h1 className='game title'>Would You Rather?</h1>
           <div>
-            
-          {!this.props.authedUser ? <Redirect to='/login' /> : <Redirect to='/' />}
-          <Route path='/login' component={Login} />
+            {!this.props.authedUser ? <Redirect to='/login' /> : <Redirect to='/' />}
+            <Route path='/login' component={Login} />
             {this.props.loading === true ? null :
               <div>
                 <NavBar/>
                 <Route path='/' exact component={Dashboard} />
                 <Route path='/question/:id' component={QuestionDetails} />
                 <Route path='/addQuestion' component={NewQuestion} />
+                <Route path='/leaderboard' component={Leaderboard} />
               </div>}
           </div>
         </div>

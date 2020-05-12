@@ -9,6 +9,7 @@
 #### Description:
 This is an application that allows users to answer 'Would You Rather?' questions posed by themselves & other users. It displays a list of the currently logged in user's unanswered and answered questions on the main dashboard. The user can navigate to a question's details to either vote or view the votes (depending on whether it has been answered or not). The user can also add a new question. 
 
+
 #### Screenshots:
 ![select-user-page](https://react-nd-would-you-rather-app-screenshots.s3.amazonaws.com/user-select.png)
 

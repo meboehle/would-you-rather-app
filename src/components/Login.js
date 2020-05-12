@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import {
   TiArrowRightThick
  } from 'react-icons/ti/index'
@@ -10,7 +10,7 @@ class Login extends Component {
   state = {
     checked: false,
     id: '',
-    toGameDashboard: false,
+    toHome: false
   }
 
   componentDidMount () {
@@ -26,9 +26,12 @@ class Login extends Component {
 
     dispatch(setAuthedUser(id))
 
-    this.setState(() => ({
-      toGameDashboard: true
-    }))
+    if (this.props.history) {
+      console.log('history exists')
+      this.props.history.goBack()
+    } else {
+      this.setState({ toHome: true })
+    }
   }
 
   onChecked = (e) => {
@@ -41,14 +44,15 @@ class Login extends Component {
 
   render() {
     const { users } = this.props
-    const { toGameDashboard } = this.state
 
-    if (toGameDashboard === true) {
+    if (this.state.toHome === true) {
       return <Redirect to='/' />
     }
-
     return (
       <div>
+        <h3 className='login title'>
+          Pick a User to Begin Playing
+        </h3>
         <form className='login-form'>
           <input className='hidden-input'/>
           <div className='login-select'>
@@ -89,4 +93,4 @@ function mapStateToProps ({ users }) {
   }
 }
 
-export default connect(mapStateToProps)(Login)
+export default withRouter(connect(mapStateToProps)(Login))

@@ -530,3 +530,8 @@ h2 {
   align-items: center;
   padding: 0 10px;
 }
+
+.gold-star-icon {
+  font-size: 35px;
+  color: #daa520;
+}

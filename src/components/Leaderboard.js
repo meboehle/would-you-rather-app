@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {
+  TiStar
+ } from 'react-icons/ti/index'
 
 class Leaderboard extends Component {
   render() {
@@ -15,6 +18,7 @@ class Leaderboard extends Component {
                 style={{boxShadow: i === this.props.sortedUsers.length -1 ?
                   'none' : 'inset 0 -4px 4px -4px #23c4b6'}}>
                 <div className='leaderboard-user'>
+                  {i === 0 && <TiStar className='gold-star-icon'/>}
                   Total for
                   <img
                     src={user.avatarURL}

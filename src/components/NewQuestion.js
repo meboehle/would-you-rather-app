@@ -11,7 +11,7 @@ class NewQuestion extends Component {
   }
 
   componentDidMount () {
-    this.props.history.push('/addQuestion')
+    this.props.history.push('/add-question')
   }
 
   handleOptionOneChange = (e) => {

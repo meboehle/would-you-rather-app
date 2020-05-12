@@ -31,6 +31,39 @@ let users = {
       "6ni6ok3ym7mf1p33lnez": 'optionTwo'
     },
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+  },
+  megboeh: {
+    id: 'megboeh',
+    name: 'Meg Boehlert',
+    avatarURL: 'https://react-nd-avatar-imgs.s3.amazonaws.com/lemur.svg',
+    answers: {
+      "8xf0y6ziyjabvozdd253nd": 'optionOne',
+      "6ni6ok3ym7mf1p33lnez": 'optionTwo',
+      "am8ehyc8byjqgar0jgpub9": 'optionTwo',
+      "loxhs1bqm25b708cmbf3g": 'optionTwo'
+    },
+    questions: []
+  },
+  bobbelcher: {
+    id: 'bobbelcher',
+    name: 'Bob Belcher',
+    avatarURL: 'https://react-nd-avatar-imgs.s3.amazonaws.com/panda.svg',
+    answers: {
+      "vthrdm985a262al8qx3do": 'optionOne',
+      "xj352vofupe1dqz9emx13r": 'optionTwo',
+    },
+    questions: [],
+  },
+  janedoe: {
+    id: 'janedoe',
+    name: 'Jane Doe',
+    avatarURL: 'https://react-nd-avatar-imgs.s3.amazonaws.com/hippopotamus.svg',
+    answers: {
+      "xj352vofupe1dqz9emx13r": 'optionOne',
+      "vthrdm985a262al8qx3do": 'optionTwo',
+      "6ni6ok3ym7mf1p33lnez": 'optionTwo'
+    },
+    questions: [],
   }
 }
 

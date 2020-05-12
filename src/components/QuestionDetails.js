@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import Question from './Question'
 import { handleAnswerQuestion } from '../actions/questions'
 
@@ -9,6 +9,10 @@ class QuestionDetails extends Component {
     voted: false,
     answer: '',
     toHome: false,
+  }
+
+  componentDidMount () {
+    this.props.history.push(`/question/${this.props.qid}`)
   }
 
   onVote = (e) => {
@@ -43,7 +47,8 @@ class QuestionDetails extends Component {
     const optionTwoPercentage = optionTwo.votes.length / totalVotes * 100
 
     if (toHome === true) {
-      return <Redirect to='/' />
+      this.props.history.push('/')
+      // return <Redirect to='/' />
     }
 
     return (
@@ -157,4 +162,4 @@ function mapStateToProps({ authedUser, questions, users }, props) {
   }
 }
 
-export default connect(mapStateToProps)(QuestionDetails)
+export default withRouter(connect(mapStateToProps)(QuestionDetails))

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, /* Redirect */} from 'react-router-dom'
 import Question from './Question'
 import { handleAnswerQuestion } from '../actions/questions'
 
@@ -146,10 +146,10 @@ function mapStateToProps({ authedUser, questions, users }, props) {
 
   let answered = false
   let answer = ''
-  if (question.optionOne.votes.find(vote => vote === authedUser)) {
+  if (question && question.optionOne.votes.find(vote => vote === authedUser)) {
     answered = true
     answer = question.optionOne
-  } else if (question.optionTwo.votes.find(vote => vote === authedUser)) {
+  } else if (question && question.optionTwo.votes.find(vote => vote === authedUser)) {
     answered = true
     answer = question.optionTwo
   }

@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatDate } from '../utils/helpers'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 class Question extends Component {
+  // componentDidMount () {
+  //   this.props.history.push(`/question/${this.props.question.id}`)
+  // }
+
   render() {
     const { users, question } = this.props
 
@@ -26,8 +30,8 @@ class Question extends Component {
               alt={`Avatar of ${name}`}
               className='avatar-question'/>{name}
         </div>
+        <div className='date'>{date}</div>
         <div className='question-container'>
-          <span>{date}</span>
           <div className='wyr-or'>Would you rather...</div>
           <span>{optionOne.text}</span>
           <div className='wyr-or'> or </div>
@@ -47,4 +51,4 @@ function mapStateToProps({ authedUser, questions, users }, { qid }) {
   }
 }
 
-export default connect(mapStateToProps)(Question)
+export default withRouter(connect(mapStateToProps)(Question))

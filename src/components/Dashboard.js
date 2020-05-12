@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
+import { withRouter } from 'react-router-dom'
 
 class Dashboard extends Component {
   state = {
     toggle: 'unanswered'
+  }
+
+  componentDidMount() {
+    this.props.history.push('/')
   }
 
   onChange = (e) => {
@@ -99,4 +104,4 @@ function mapStateToProps({ authedUser, questions }) {
   }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default withRouter(connect(mapStateToProps)(Dashboard))

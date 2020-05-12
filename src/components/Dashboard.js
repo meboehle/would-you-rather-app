@@ -30,7 +30,7 @@ class Dashboard extends Component {
     const { unansweredIds, answeredIds } = this.props
     return (
       <div className='questions'>
-        <h2 className='dashboard-title'>QUESTIONS</h2>
+        <h2>Questions</h2>
         <div className='toggle-btns'>
           <label className='toggle-label'>
             <input

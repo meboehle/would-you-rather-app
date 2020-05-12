@@ -23,4 +23,4 @@ This is an application that allows users to answer 'Would You Rather?' questions
 
 ![create-new-question](https://react-nd-would-you-rather-app-screenshots.s3.amazonaws.com/create-new-question.png)
 
-![leaderboard-page](https://react-nd-would-you-rather-app-screenshots.s3.amazonaws.com/leaderboard.png)
+

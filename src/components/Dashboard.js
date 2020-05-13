@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
-import { withRouter } from 'react-router-dom'
 
 class Dashboard extends Component {
   state = {
     toggle: 'unanswered'
-  }
-
-  componentDidMount() {
-    this.props.history.push('/')
   }
 
   onChange = (e) => {
@@ -32,7 +27,7 @@ class Dashboard extends Component {
       <div className='questions'>
         <h2>Questions</h2>
         <div className='toggle-btns'>
-          <label className='toggle-label'>
+          <label>
             <input
               className='option'
               type='radio'
@@ -43,7 +38,7 @@ class Dashboard extends Component {
             <div className='select'>U</div>
             <span>Unanswered</span>
           </label>
-          <label className='toggle-label'>
+          <label>
             <input
               className='option'
               type='radio'
@@ -51,7 +46,7 @@ class Dashboard extends Component {
               value='answered'
               onChange={(e) => this.onChange(e)}/>
             <div className='select'>A</div>
-            Answered
+            <span>Answered</span>
           </label>
         </div>
         {this.state.toggle === 'unanswered' && unansweredIds.length !== 0 &&
@@ -104,4 +99,4 @@ function mapStateToProps({ authedUser, questions }) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Dashboard))
+export default connect(mapStateToProps)(Dashboard)

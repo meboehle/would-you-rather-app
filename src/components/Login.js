@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Redirect } from 'react-router-dom'
 import {
   TiArrowRightThick
  } from 'react-icons/ti/index'
@@ -32,9 +31,6 @@ class Login extends Component {
   render() {
     const { users } = this.props
 
-    if (this.state.toHome === true) {
-      return <Redirect to='/' />
-    }
     return (
       <div>
         <h3 className='login title'>
@@ -83,4 +79,4 @@ function mapStateToProps ({ users }) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Login))
+export default connect(mapStateToProps)(Login)

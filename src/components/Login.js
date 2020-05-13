@@ -13,25 +13,12 @@ class Login extends Component {
     toHome: false
   }
 
-  componentDidMount () {
-    const { dispatch } = this.props
-
-    dispatch(setAuthedUser(null))
-  }
-
   handleLogin = (e) => {
     e.preventDefault()
     const { id } = this.state
     const { dispatch } = this.props
 
     dispatch(setAuthedUser(id))
-
-    if (this.props.history) {
-      console.log('history exists')
-      this.props.history.goBack()
-    } else {
-      this.setState({ toHome: true })
-    }
   }
 
   onChecked = (e) => {

@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
-import { Redirect, withRouter } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class NewQuestion extends Component {
   state = {
     optionOneText: '',
     optionTwoText: '',
     toHome: false,
-  }
-
-  componentDidMount () {
-    this.props.history.push('/add-question')
   }
 
   handleOptionOneChange = (e) => {
@@ -50,7 +46,6 @@ class NewQuestion extends Component {
 
     if (toHome === true) {
       return <Redirect to='/' />
-      // this.props.history.push('/')
     }
 
     return (
@@ -83,4 +78,4 @@ class NewQuestion extends Component {
   }
 }
 
-export default withRouter(connect()(NewQuestion))
+export default connect()(NewQuestion)

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Welcome from './Welcome'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
@@ -23,9 +23,9 @@ class NavBar extends Component {
           <NavLink to='/leaderboard' activeClassName='active'>
             leaderboard
           </NavLink>
-          <NavLink to='/login' activeClassName='active' onClick={this.onLogout}>
+          <button className='logout-btn' to='/' onClick={this.onLogout}>
             logout
-          </NavLink>
+          </button>
         </nav>
         <Welcome/>
       </div>
@@ -33,4 +33,4 @@ class NavBar extends Component {
   }
 }
 
-export default withRouter(connect()(NavBar))
+export default connect()(NavBar)

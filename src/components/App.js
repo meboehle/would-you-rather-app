@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, withRouter , Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitData } from '../actions/shared'
 import Login from './Login'
@@ -7,16 +7,13 @@ import Dashboard from './Dashboard'
 import NavBar from './NavBar'
 import QuestionDetails from './QuestionDetails'
 import NewQuestion from './NewQuestion'
-// import NotFound from './404'
+import NotFound from './404'
 import LoadingBar from 'react-redux-loading'
 import Leaderboard from './Leaderboard'
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitData())
-    // if (!this.props.authedUser) {
-    //   this.props.history.push('/login')
-    // }
   }
 
   render() {
@@ -25,15 +22,16 @@ class App extends Component {
           <LoadingBar/>
           <h1 className='game title'>Would You Rather?</h1>
           <div>
-            {!this.props.authedUser ? <Redirect to='/login' /> : <Redirect to='/' />}
-            <Route path='/login' component={Login} />
-            {this.props.loading === true ? null :
+            {this.props.loading === true ? <Login/> :
               <div>
                 <NavBar/>
-                <Route path='/' exact component={Dashboard} />
-                <Route path='/question/:id' component={QuestionDetails} />
-                <Route path='/add-question' component={NewQuestion} />
-                <Route path='/leaderboard' component={Leaderboard} />
+                <Switch>
+                  <Route path='/' exact component={Dashboard} />
+                  <Route path='/question/:id' exact component={QuestionDetails} />
+                  <Route path='/add-question' exact component={NewQuestion} />
+                  <Route path='/leaderboard' exact component={Leaderboard} />
+                  <Route component={NotFound} />
+                </Switch>
               </div>}
           </div>
         </div>
@@ -43,9 +41,8 @@ class App extends Component {
 
 function mapStateToProps ({authedUser}) {
   return {
-    authedUser,
     loading: authedUser === null
   }
 }
 
-export default withRouter(connect(mapStateToProps)(App))
+export default connect(mapStateToProps)(App)

@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 import Welcome from './Welcome'
 import { connect } from 'react-redux'
-
+import { setAuthedUser } from '../actions/authedUser'
 
 class NavBar extends Component {
   onLogout = () => {
-    this.props.history.replace('/')
+    const { dispatch } = this.props
+    dispatch(setAuthedUser(null))
   }
 
   render() {

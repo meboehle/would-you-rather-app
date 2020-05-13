@@ -10,6 +10,7 @@ body {
 }
 
 /* Overall */
+
 .avatar {
   height: 70px;
   margin: 10px;
@@ -37,6 +38,7 @@ body {
 
 
 /* Login Page */
+
 .login {
   font-weight: 500;
   height: 50px;
@@ -149,6 +151,7 @@ body {
 
 
 /* NavBar */
+
 .nav {
   height: 50px;
   width: 100%;
@@ -167,6 +170,24 @@ body {
   background-color: #011627;
 }
 
+.logout-btn {
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-family: 'Muli', sans-serif;
+  color: #fdfffc;
+}
+
+.logout-btn:hover {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.logout-btn:focus {
+  outline: 0;
+}
+
 nav a {
   text-decoration: none;
   color: #fdfffc;
@@ -175,6 +196,9 @@ nav a {
 nav a:hover {
   font-weight: 700;
 }
+
+
+/* Welcome */
 
 .welcome {
   font-size: 22px;
@@ -192,6 +216,7 @@ nav a:hover {
 
 
 /* Dashboard */
+
 ul {
   list-style: none;
   padding: 0;
@@ -219,8 +244,26 @@ li {
   opacity: 0;
 }
 
+.select + span {
+  cursor: pointer;
+}
+
+.question-list {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  overflow: scroll;
+  max-height: 480px;
+}
+
+.questions {
+  padding: 0 10px;
+  text-align: center;
+}
+
 
 /* Question */
+
 .question {
   min-height: 80px;
   border: 2px solid transparent;
@@ -251,11 +294,6 @@ li {
   margin: 10px;
 }
 
-.questions {
-  padding: 0 10px;
-  text-align: center;
-}
-
 .question-container {
   margin: 5px;
   flex: 1 1 auto;
@@ -283,13 +321,8 @@ li {
   font-size: 22px;
 }
 
-.question-list {
-  width: 90%;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  overflow: scroll;
-  max-height: 480px;
-}
+
+/* Question Details */
 
 .single-question {
   display: flex;
@@ -298,6 +331,9 @@ li {
   margin-top: 40px;
   width: 90%;
 }
+
+
+/* Vote Results */
 
 .vote-details {
   padding: 50px 0 0 0;
@@ -369,6 +405,7 @@ li {
 
 
 /* New Question */
+
 h2 {
   text-align: center;
   margin-top: 10px;
@@ -428,7 +465,8 @@ h2 {
 }
 
 
-/* Voting */
+/* Vote Form */
+
 .voting-form {
   margin: 0 auto;
   display: flex;
@@ -475,12 +513,9 @@ h2 {
   margin-top: 60px;
 }
 
-.option-text {
-  text-align: center;
-}
-
 
 /* Leaderboard */
+
 .leaderboard-container {
   margin: 0 0 50px 0;
   width: 60%;
@@ -531,7 +566,20 @@ h2 {
   padding: 0 10px;
 }
 
-.gold-star-icon {
-  font-size: 35px;
-  color: #daa520;
+
+/* Not Found */
+
+.not-found {
+  font-size: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.four-oh-four {
+  font-size: 160px;
+  font-family: 'Lobster', sans-serif;
+  color: #ff9f1c;
 }

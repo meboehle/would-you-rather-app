@@ -14,7 +14,7 @@ class NavBar extends Component {
     return (
       <div>
         <nav className='nav'>
-          <NavLink to='/' exact activeClassName='active'>
+          <NavLink to='/would-you-rather-app' exact activeClassName='active'>
             home
           </NavLink>
           <NavLink to='/add' activeClassName='active'>
@@ -23,7 +23,7 @@ class NavBar extends Component {
           <NavLink to='/leaderboard' activeClassName='active'>
             leaderboard
           </NavLink>
-          <button className='logout-btn' to='/' onClick={this.onLogout}>
+          <button className='logout-btn' to='/would-you-rather-app' onClick={this.onLogout}>
             logout
           </button>
         </nav>

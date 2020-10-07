@@ -18,7 +18,7 @@ class Login extends Component {
     const { dispatch } = this.props
 
     dispatch(setAuthedUser(id)).then(
-      pendo.initialize({
+      window.pendo.initialize({
         visitor: {
           id: id
         },

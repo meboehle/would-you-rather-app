@@ -22,7 +22,6 @@ class Login extends Component {
       visitor: {
         id: id
       },
-      apiKey: 'f94ec4b2-ad7f-4f9c-6bd9-5dd6c690864c',
       account: {
         id: 76543,
         city: 'Raleigh'

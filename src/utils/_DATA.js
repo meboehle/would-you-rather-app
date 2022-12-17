@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://react-nd-avatar-imgs.s3.amazonaws.com/tiger.svg',
+    avatarURL: 'public/crab.png',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://react-nd-avatar-imgs.s3.amazonaws.com/wolf.svg',
+    avatarURL: 'public/dog1.png',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'https://react-nd-avatar-imgs.s3.amazonaws.com/monkey.svg',
+    avatarURL: 'public/dog2.png',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -35,7 +35,7 @@ let users = {
   megboeh: {
     id: 'megboeh',
     name: 'Meg Boehlert',
-    avatarURL: 'https://react-nd-avatar-imgs.s3.amazonaws.com/lemur.svg',
+    avatarURL: 'public/tiger.png',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -47,7 +47,7 @@ let users = {
   bobbelcher: {
     id: 'bobbelcher',
     name: 'Bob Belcher',
-    avatarURL: 'https://react-nd-avatar-imgs.s3.amazonaws.com/panda.svg',
+    avatarURL: 'public/frog.png',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -57,7 +57,7 @@ let users = {
   janedoe: {
     id: 'janedoe',
     name: 'Jane Doe',
-    avatarURL: 'https://react-nd-avatar-imgs.s3.amazonaws.com/hippopotamus.svg',
+    avatarURL: 'public/pig.png',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

@@ -4,6 +4,7 @@ import {
   TiArrowRightThick
  } from 'react-icons/ti/index'
 import { setAuthedUser } from '../actions/authedUser'
+import images from '../utils/images'
 
 class Login extends Component {
   state = {
@@ -58,7 +59,7 @@ class Login extends Component {
                   value={user.id}
                   onChange={(event) => this.onChecked(event)}/>
                 <img
-                  src={user.avatarURL}
+                  src={images[user.index]}
                   alt={`Avatar of ${user.name}`}
                   className='avatar'/>
                 {user.name}

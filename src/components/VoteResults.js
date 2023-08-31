@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import images from '../utils/images'
 
 const VoteResults = ({question, user, answer}) => {
   const { optionOne, optionTwo } = question
@@ -29,7 +30,7 @@ const VoteResults = ({question, user, answer}) => {
         <div className='label'>
           {answer.text === optionOne.text &&
             <img
-              src={user.avatarURL}
+              src={images[user.index]}
               alt={`Avatar of ${user.name}`}
               className='avatar-question'/>}
           <span className='label-text'>{optionOne.text} </span>
@@ -40,7 +41,7 @@ const VoteResults = ({question, user, answer}) => {
         <div className='label'>
           {answer.text === optionTwo.text &&
             <img
-              src={user.avatarURL}
+              src={images[user.index]}
               alt={`Avatar of ${user.name}`}
               className='avatar-question'/>}
           <span className='label-text'>{optionTwo.text} </span>

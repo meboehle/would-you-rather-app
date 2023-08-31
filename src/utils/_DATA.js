@@ -1,8 +1,8 @@
 let users = {
   sarahedo: {
+    index: 0,
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'public/crab.png',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -12,9 +12,9 @@ let users = {
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
   tylermcginnis: {
+    index: 1,
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'public/dog1.png',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -22,9 +22,9 @@ let users = {
     questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
   },
   johndoe: {
+    index: 2,
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'public/dog2.png',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -33,9 +33,9 @@ let users = {
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
   },
   megboeh: {
+    index: 3,
     id: 'megboeh',
     name: 'Meg Boehlert',
-    avatarURL: 'public/tiger.png',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -45,9 +45,9 @@ let users = {
     questions: []
   },
   bobbelcher: {
+    index: 4,
     id: 'bobbelcher',
     name: 'Bob Belcher',
-    avatarURL: 'public/frog.png',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -55,9 +55,9 @@ let users = {
     questions: [],
   },
   janedoe: {
+    index: 5,
     id: 'janedoe',
     name: 'Jane Doe',
-    avatarURL: 'public/pig.png',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

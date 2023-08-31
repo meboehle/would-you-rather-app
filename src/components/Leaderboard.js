@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import images from '../utils/images'
 
 const Leaderboard = ({sortedUsers}) => {
   return (
@@ -15,7 +16,7 @@ const Leaderboard = ({sortedUsers}) => {
               <div className='leaderboard-user'>
                 Total for
                 <img
-                  src={user.avatarURL}
+                  src={images[user.index]}
                   alt={`Avatar of ${user.name}`}
                   className='avatar-question'
                 />

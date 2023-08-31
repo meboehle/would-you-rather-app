@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import images from '../utils/images'
 
 const Welcome = ({user}) => {
   return (
     <div className='welcome'>
       <img
-        src={user.avatarURL}
+        src={images[user.index]}
         alt={`Avatar of ${user.name}`}
         className='avatar-welcome'/>
       Welcome, {user.name}!

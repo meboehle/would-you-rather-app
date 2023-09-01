@@ -11,7 +11,7 @@ This is an application that allows users to answer 'Would You Rather?' questions
 
 The user can navigate to a question's details to either vote or view the votes (depending on whether it has been answered or not). The user can also add new questions and view a leaderboard that displays users in descending order of who has asked and answered the most questions. If the user tries to navigate to a route that does not exist or to a question that does not exist, they will be shown a 404 page
 
-#### Image Attribution
+#### Image Attribution:
 Deer <a href="https://www.freepik.com/icon/deer_2931498#fromView=resource_detail&position=23">Icon by Hery Mery</a>
 Chick <a href="https://www.freepik.com/icon/chick_2931500#fromView=resource_detail&position=22">Icon by Hery Mery</a>
 Unicorn <a href="https://www.freepik.com/icon/unicorn_2931521#fromView=resource_detail&position=1">Icon by Hery Mery</a>

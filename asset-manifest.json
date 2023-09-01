@@ -1,22 +1,19 @@
 {
   "files": {
-    "main.css": "/would-you-rather-app/static/css/main.d48a3b0c.chunk.css",
-    "main.js": "/would-you-rather-app/static/js/main.d6252dad.chunk.js",
-    "main.js.map": "/would-you-rather-app/static/js/main.d6252dad.chunk.js.map",
-    "runtime-main.js": "/would-you-rather-app/static/js/runtime-main.2633802a.js",
-    "runtime-main.js.map": "/would-you-rather-app/static/js/runtime-main.2633802a.js.map",
-    "static/js/2.c407f34a.chunk.js": "/would-you-rather-app/static/js/2.c407f34a.chunk.js",
-    "static/js/2.c407f34a.chunk.js.map": "/would-you-rather-app/static/js/2.c407f34a.chunk.js.map",
+    "main.css": "/would-you-rather-app/static/css/main.2f72bd45.css",
+    "main.js": "/would-you-rather-app/static/js/main.a18fae89.js",
+    "static/media/unicorn.png": "/would-you-rather-app/static/media/unicorn.5b50480b49fbe4571cc7.png",
+    "static/media/reindeer.png": "/would-you-rather-app/static/media/reindeer.7ceeb75a95a9bbbaff3d.png",
+    "static/media/koala.png": "/would-you-rather-app/static/media/koala.9c3170b44d5dbf7b25cc.png",
+    "static/media/chicken.png": "/would-you-rather-app/static/media/chicken.784f75dd0b24ad9b3f96.png",
+    "static/media/dolphin.png": "/would-you-rather-app/static/media/dolphin.40391af0f8af39fa30c7.png",
+    "static/media/chick.png": "/would-you-rather-app/static/media/chick.dabc221afb5e5f41cb6f.png",
     "index.html": "/would-you-rather-app/index.html",
-    "precache-manifest.a7b7e6d7e6ade9b0b1a3c3f1b5f3cfa1.js": "/would-you-rather-app/precache-manifest.a7b7e6d7e6ade9b0b1a3c3f1b5f3cfa1.js",
-    "service-worker.js": "/would-you-rather-app/service-worker.js",
-    "static/css/main.d48a3b0c.chunk.css.map": "/would-you-rather-app/static/css/main.d48a3b0c.chunk.css.map",
-    "static/js/2.c407f34a.chunk.js.LICENSE.txt": "/would-you-rather-app/static/js/2.c407f34a.chunk.js.LICENSE.txt"
+    "main.2f72bd45.css.map": "/would-you-rather-app/static/css/main.2f72bd45.css.map",
+    "main.a18fae89.js.map": "/would-you-rather-app/static/js/main.a18fae89.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.2633802a.js",
-    "static/js/2.c407f34a.chunk.js",
-    "static/css/main.d48a3b0c.chunk.css",
-    "static/js/main.d6252dad.chunk.js"
+    "static/css/main.2f72bd45.css",
+    "static/js/main.a18fae89.js"
   ]
 }

@@ -4,7 +4,7 @@ import {
   TiArrowRightThick
  } from 'react-icons/ti/index'
 import { setAuthedUser } from '../actions/authedUser'
-import images from '../utils/images'
+import images from '../images'
 
 class Login extends Component {
   state = {

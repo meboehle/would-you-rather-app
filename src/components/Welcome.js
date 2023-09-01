@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import images from '../utils/images'
+import images from '../images'
 
 const Welcome = ({user}) => {
   return (

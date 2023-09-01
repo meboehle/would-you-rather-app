@@ -1,9 +1,9 @@
-import chick from './chick.png';
-import chicken from './chicken.png';
-import dolphin from './dolphin.png';
-import koala from './koala.png';
-import reindeer from './reindeer.png';
-import unicorn from './unicorn.png';
+import chick from './img/chick.png';
+import chicken from './img/chicken.png';
+import dolphin from './img/dolphin.png';
+import koala from './img/koala.png';
+import reindeer from './img/reindeer.png';
+import unicorn from './img/unicorn.png';
 
 export default [
     chick,

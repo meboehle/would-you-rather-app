@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { formatDate } from '../utils/helpers'
 import { Link } from 'react-router-dom'
-import images from '../utils/images'
+import images from '../images'
 
 const Question = ({users, question}) => {
   const {

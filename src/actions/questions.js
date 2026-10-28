@@ -1,5 +1,6 @@
 import { saveQuestionAnswer, saveQuestion } from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
+import { trackEvent } from '../utils/pendo'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
@@ -30,7 +31,17 @@ export function handleAddQuestion (optionOneText, optionTwoText) {
       optionOneText,
       optionTwoText
     })
-      .then((question) => dispatch(addQuestion(question)))
+      .then((question) => {
+        dispatch(addQuestion(question))
+        // Pendo: the new question was saved and added to the store
+        trackEvent('question_created', {
+          question_id: question.id,
+          author: question.author,
+          option_one_length: question.optionOne.text.length,
+          option_two_length: question.optionTwo.text.length,
+          timestamp: question.timestamp
+        })
+      })
       .then(() => dispatch(hideLoading()))
   }
 }
@@ -55,7 +66,18 @@ export function handleAnswerQuestion (qid, answer) {
       qid,
       answer
     })
-      .then(() => dispatch(answerQuestion(qid, answer, authedUser)))
+      .then(() => {
+        dispatch(answerQuestion(qid, answer, authedUser))
+        // Pendo: the vote was saved and recorded in the store
+        const q = getState().questions[qid]
+        trackEvent('question_answered', {
+          question_id: qid,
+          answer,
+          question_author: q ? q.author : undefined,
+          option_one_votes: q ? q.optionOne.votes.length : undefined,
+          option_two_votes: q ? q.optionTwo.votes.length : undefined
+        })
+      })
       .then(() => dispatch(hideLoading()))
   }
 }

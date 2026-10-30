@@ -30,7 +30,16 @@ export function handleAddQuestion (optionOneText, optionTwoText) {
       optionOneText,
       optionTwoText
     })
-      .then((question) => dispatch(addQuestion(question)))
+      .then((question) => {
+        // Track successful question creation
+        if (window.pendo) {
+          window.pendo.track('question_created', {
+            question_id: question.id,
+            author: question.author
+          })
+        }
+        return dispatch(addQuestion(question))
+      })
       .then(() => dispatch(hideLoading()))
   }
 }
@@ -55,7 +64,16 @@ export function handleAnswerQuestion (qid, answer) {
       qid,
       answer
     })
-      .then(() => dispatch(answerQuestion(qid, answer, authedUser)))
+      .then(() => {
+        // Track successful vote submission
+        if (window.pendo) {
+          window.pendo.track('vote_submitted', {
+            question_id: qid,
+            selected_option: answer
+          })
+        }
+        return dispatch(answerQuestion(qid, answer, authedUser))
+      })
       .then(() => dispatch(hideLoading()))
   }
 }
